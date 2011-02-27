@@ -1,0 +1,20 @@
+- unless @link.nil?
+  .success
+    %p
+      %strong= @link.url
+      has been shortened to
+      %strong
+        %a{:rel => "shortlink", :href => "/#{@link.slug}"}= short_url(@link)
+
+%form{:id => 'minime', :method => 'post', :action => '/'}
+  %fieldset
+    %label{:for => 'url'} Take this link:
+    %input{:type => 'text', :name => 'url', :id => 'url'}
+    %button{:type => 'submit'} and shorten it
+    %br
+    %label{:for => 'custom'} Custom alias (optional):
+    %input{:type => 'text', :name => 'custom'}
+
+%aside
+  %a{:href => "javascript:(function(){location.href='#{env['REQUEST_URI']}api/create/'+encodeURIComponent(location.href);})();"} Minime!
+  %em ← Drag this link to your bookmark bar.  When you want to shorten a URL, just click the bookmark!
