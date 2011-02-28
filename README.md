@@ -1,5 +1,8 @@
 # Minime
-Minime is a simple URL shortener application (like TinyUrl, bit.ly, etc) built using Ruby and Sinatra.
+Minime is a simple URL shortener application built using Ruby and Sinatra.
+
+## Demo
+[http://sminime.heroku.com](http://sminime.heroku.com)
 
 ## Getting started
 
@@ -7,9 +10,5 @@ Minime is a simple URL shortener application (like TinyUrl, bit.ly, etc) built u
 2. cd minime
 3. Install gems:  
     `bundle install`
-4. Initialize the database:  
-    `irb`  
-    `require './app'`  
-    `DataMapper.auto_migrate!`
-5. Start app: `shotgun`
-6. Open your browser to: `http://localhost:9393`
+4. Start app: `shotgun`
+5. Open your browser to: `http://localhost:9393`

@@ -19,10 +19,12 @@ module Minime
       set :show_exceptions, false
       set :raise_errors, false
       DataMapper::Logger.new($stdout, :debug) # Logger must be configured before db connection
-      DataMapper.setup(:default, "sqlite:///#{File.expand_path(File.dirname(__FILE__))}/db.sqlite")
+      DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db.sqlite")
+      DataMapper.auto_upgrade!
     end
     configure :production, :test do
-      DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://root:root@localhost/minime')
+      DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite:///#{Dir.pwd}/db.sqlite")
+      DataMapper.auto_upgrade!
     end
 
     # Helpers
